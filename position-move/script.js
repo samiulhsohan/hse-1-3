@@ -7,11 +7,18 @@ const handleMouseMove = (e) => {
   $(".page-y").text(`y: ${pageY}`);
   $(".window-size").text(`window: ${windowWidth} x ${windowHeight}`);
 
+  const hue = 235;
   const saturation = Math.round((pageX / windowWidth) * 100);
   const lightness = Math.round((pageY / windowHeight) * 100);
 
-  $(".hsl").text(`color: hsl(225, ${saturation}%, ${lightness}%)`);
-  $(".box").css("background-color", `hsl(235, ${saturation}%, ${lightness}%)`);
+  $(".box").css(
+    "background-color",
+    `hsl(${hue}, ${saturation}%, ${lightness}%)`
+  );
+
+  $(".hue").text(`hue: ${hue}`);
+  $(".saturation").text(`saturation: ${saturation}`);
+  $(".lightness").text(`lightness: ${lightness}`);
 };
 
 $(document).mousemove(handleMouseMove);
