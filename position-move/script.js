@@ -22,10 +22,11 @@ const handleMouseMove = (e) => {
   $(".lightness").text(`lightness: ${lightness}`);
 };
 
-$(document).mousemove(handleMouseMove);
-
-document.querySelector(".button").addEventListener("click", () => {
+const changeColor = () => {
   hue = Math.round(Math.random() * 360);
   $(".hue").text(`hue: ${hue}`);
   $(".box").css("background-color", `hsl(${hue}, 50%, 50%)`);
-});
+};
+
+$(document).mousemove(handleMouseMove);
+$(".button").click(changeColor);
